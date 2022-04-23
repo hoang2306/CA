@@ -2,7 +2,7 @@
 # NGUYEN MINH HOANG - 2052481
 
 .data
-	entry: .asciiz "0ABCDEFGHIJKLMNOPQRSTUVWXY"
+	entry: .asciiz "0ABCDEFGHIJKLMNPQRSTUVWYZ/"
 	welcome: .asciiz     "\n=========================================== Welcome to MIPS-based TIC-TAC-TOE ===============================================================\n"
 	askToplay: .asciiz "\nStart the game ? (y/n)?"
 	INSTRUCTION1: .asciiz " This version is design for two players.\n To mark your move, pelase choose a number from 1 to 25 in order to fill 'X' or 'O' in the board. Otherwise, game will be terminated\n To surrender, enter -1\n The board will be structured like below.\n "
@@ -298,7 +298,390 @@ FIGHTING:
 	lw $ra, 4($sp)		#Restore $ra
 	addi $sp, $sp, 4
 	bnez $v0, W
-
+	
+	#### Second player move - 5th Time #####################
+	addi $sp, $sp, -4	#Allocate Stack
+	sw $ra, 4($sp)		#Store register address
+	jal MOVE2		#Get the 1st player's move
+	lw $ra, 4($sp)		#Restore $ra
+	addi $sp, $sp, 4	
+	lb $t1, O
+	sb $t1, 0($v0)
+	
+	############ PRINT BOARD ##########################
+	addi $sp, $sp, -4	#Allocate Stack
+	sw $ra, 4($sp)		#Store register address
+	jal PRINTBOARD		#Print the board
+	lw $ra, 4($sp)		#Restore $ra
+	addi $sp, $sp, 4                             
+	
+	######## WHO IS WINNER? ############### 
+	addi $sp, $sp, -4	#Allocate Stack
+	sw $ra, 4($sp)		#Store register address
+	jal VIPPRO		#Check for winner
+	lw $ra, 4($sp)		#Restore $ra
+	addi $sp, $sp, 4
+	bnez $v0, W
+	
+	##### First player move - 6th Time ########################
+	addi $sp, $sp, -4	#Allocate Stack
+	sw $ra, 4($sp)		#Store register address
+	jal MOVE1		#Get the 1st player's move
+	lw $ra, 4($sp)		#Restore $ra
+	addi $sp, $sp, 4	
+	lb $t0, X
+	sb $t0, 0($v0)
+	
+	############ PRINT BOARD ##########################
+	addi $sp, $sp, -4	#Allocate Stack
+	sw $ra, 4($sp)		#Store register address
+	jal PRINTBOARD		#Print the board
+	lw $ra, 4($sp)		#Restore $ra
+	addi $sp, $sp, 4
+	
+	######## WHO IS WINNER? ############### 
+	addi $sp, $sp, -4	#Allocate Stack
+	sw $ra, 4($sp)		#Store register address
+	jal VIPPRO		#Check for winner
+	lw $ra, 4($sp)		#Restore $ra
+	addi $sp, $sp, 4
+	bnez $v0, W
+	
+	#### Second player move - 6th Time #####################
+	addi $sp, $sp, -4	#Allocate Stack
+	sw $ra, 4($sp)		#Store register address
+	jal MOVE2		#Get the 1st player's move
+	lw $ra, 4($sp)		#Restore $ra
+	addi $sp, $sp, 4	
+	lb $t1, O
+	sb $t1, 0($v0)
+	
+	############ PRINT BOARD ##########################
+	addi $sp, $sp, -4	#Allocate Stack
+	sw $ra, 4($sp)		#Store register address
+	jal PRINTBOARD		#Print the board
+	lw $ra, 4($sp)		#Restore $ra
+	addi $sp, $sp, 4                             
+	
+	######## WHO IS WINNER? ############### 
+	addi $sp, $sp, -4	#Allocate Stack
+	sw $ra, 4($sp)		#Store register address
+	jal VIPPRO		#Check for winner
+	lw $ra, 4($sp)		#Restore $ra
+	addi $sp, $sp, 4
+	bnez $v0, W
+	
+	##### First player move - 7th Time ########################
+	addi $sp, $sp, -4	#Allocate Stack
+	sw $ra, 4($sp)		#Store register address
+	jal MOVE1		#Get the 1st player's move
+	lw $ra, 4($sp)		#Restore $ra
+	addi $sp, $sp, 4	
+	lb $t0, X
+	sb $t0, 0($v0)
+	
+	############ PRINT BOARD ##########################
+	addi $sp, $sp, -4	#Allocate Stack
+	sw $ra, 4($sp)		#Store register address
+	jal PRINTBOARD		#Print the board
+	lw $ra, 4($sp)		#Restore $ra
+	addi $sp, $sp, 4
+	
+	######## WHO IS WINNER? ############### 
+	addi $sp, $sp, -4	#Allocate Stack
+	sw $ra, 4($sp)		#Store register address
+	jal VIPPRO		#Check for winner
+	lw $ra, 4($sp)		#Restore $ra
+	addi $sp, $sp, 4
+	bnez $v0, W
+	
+	#### Second player move - 7th Time #####################
+	addi $sp, $sp, -4	#Allocate Stack
+	sw $ra, 4($sp)		#Store register address
+	jal MOVE2		#Get the 1st player's move
+	lw $ra, 4($sp)		#Restore $ra
+	addi $sp, $sp, 4	
+	lb $t1, O
+	sb $t1, 0($v0)
+	
+	############ PRINT BOARD ##########################
+	addi $sp, $sp, -4	#Allocate Stack
+	sw $ra, 4($sp)		#Store register address
+	jal PRINTBOARD		#Print the board
+	lw $ra, 4($sp)		#Restore $ra
+	addi $sp, $sp, 4                             
+	
+	######## WHO IS WINNER? ############### 
+	addi $sp, $sp, -4	#Allocate Stack
+	sw $ra, 4($sp)		#Store register address
+	jal VIPPRO		#Check for winner
+	lw $ra, 4($sp)		#Restore $ra
+	addi $sp, $sp, 4
+	bnez $v0, W
+	
+	##### First player move - 8th Time ########################
+	addi $sp, $sp, -4	#Allocate Stack
+	sw $ra, 4($sp)		#Store register address
+	jal MOVE1		#Get the 1st player's move
+	lw $ra, 4($sp)		#Restore $ra
+	addi $sp, $sp, 4	
+	lb $t0, X
+	sb $t0, 0($v0)
+	
+	############ PRINT BOARD ##########################
+	addi $sp, $sp, -4	#Allocate Stack
+	sw $ra, 4($sp)		#Store register address
+	jal PRINTBOARD		#Print the board
+	lw $ra, 4($sp)		#Restore $ra
+	addi $sp, $sp, 4
+	
+	######## WHO IS WINNER? ############### 
+	addi $sp, $sp, -4	#Allocate Stack
+	sw $ra, 4($sp)		#Store register address
+	jal VIPPRO		#Check for winner
+	lw $ra, 4($sp)		#Restore $ra
+	addi $sp, $sp, 4
+	bnez $v0, W
+	
+	#### Second player move - 8th Time #####################
+	addi $sp, $sp, -4	#Allocate Stack
+	sw $ra, 4($sp)		#Store register address
+	jal MOVE2		#Get the 1st player's move
+	lw $ra, 4($sp)		#Restore $ra
+	addi $sp, $sp, 4	
+	lb $t1, O
+	sb $t1, 0($v0)
+	
+	############ PRINT BOARD ##########################
+	addi $sp, $sp, -4	#Allocate Stack
+	sw $ra, 4($sp)		#Store register address
+	jal PRINTBOARD		#Print the board
+	lw $ra, 4($sp)		#Restore $ra
+	addi $sp, $sp, 4                             
+	
+	######## WHO IS WINNER? ############### 
+	addi $sp, $sp, -4	#Allocate Stack
+	sw $ra, 4($sp)		#Store register address
+	jal VIPPRO		#Check for winner
+	lw $ra, 4($sp)		#Restore $ra
+	addi $sp, $sp, 4
+	bnez $v0, W
+	
+	##### First player move - 9th Time ########################
+	addi $sp, $sp, -4	#Allocate Stack
+	sw $ra, 4($sp)		#Store register address
+	jal MOVE1		#Get the 1st player's move
+	lw $ra, 4($sp)		#Restore $ra
+	addi $sp, $sp, 4	
+	lb $t0, X
+	sb $t0, 0($v0)
+	
+	############ PRINT BOARD ##########################
+	addi $sp, $sp, -4	#Allocate Stack
+	sw $ra, 4($sp)		#Store register address
+	jal PRINTBOARD		#Print the board
+	lw $ra, 4($sp)		#Restore $ra
+	addi $sp, $sp, 4
+	
+	######## WHO IS WINNER? ############### 
+	addi $sp, $sp, -4	#Allocate Stack
+	sw $ra, 4($sp)		#Store register address
+	jal VIPPRO		#Check for winner
+	lw $ra, 4($sp)		#Restore $ra
+	addi $sp, $sp, 4
+	bnez $v0, W
+	
+	#### Second player move - 9th Time #####################
+	addi $sp, $sp, -4	#Allocate Stack
+	sw $ra, 4($sp)		#Store register address
+	jal MOVE2		#Get the 1st player's move
+	lw $ra, 4($sp)		#Restore $ra
+	addi $sp, $sp, 4	
+	lb $t1, O
+	sb $t1, 0($v0)
+	
+	############ PRINT BOARD ##########################
+	addi $sp, $sp, -4	#Allocate Stack
+	sw $ra, 4($sp)		#Store register address
+	jal PRINTBOARD		#Print the board
+	lw $ra, 4($sp)		#Restore $ra
+	addi $sp, $sp, 4                             
+	
+	######## WHO IS WINNER? ############### 
+	addi $sp, $sp, -4	#Allocate Stack
+	sw $ra, 4($sp)		#Store register address
+	jal VIPPRO		#Check for winner
+	lw $ra, 4($sp)		#Restore $ra
+	addi $sp, $sp, 4
+	bnez $v0, W
+	
+	##### First player move - 10th Time ########################
+	addi $sp, $sp, -4	#Allocate Stack
+	sw $ra, 4($sp)		#Store register address
+	jal MOVE1		#Get the 1st player's move
+	lw $ra, 4($sp)		#Restore $ra
+	addi $sp, $sp, 4	
+	lb $t0, X
+	sb $t0, 0($v0)
+	
+	############ PRINT BOARD ##########################
+	addi $sp, $sp, -4	#Allocate Stack
+	sw $ra, 4($sp)		#Store register address
+	jal PRINTBOARD		#Print the board
+	lw $ra, 4($sp)		#Restore $ra
+	addi $sp, $sp, 4
+	
+	######## WHO IS WINNER? ############### 
+	addi $sp, $sp, -4	#Allocate Stack
+	sw $ra, 4($sp)		#Store register address
+	jal VIPPRO		#Check for winner
+	lw $ra, 4($sp)		#Restore $ra
+	addi $sp, $sp, 4
+	bnez $v0, W
+	
+	#### Second player move - 10th Time #####################
+	addi $sp, $sp, -4	#Allocate Stack
+	sw $ra, 4($sp)		#Store register address
+	jal MOVE2		#Get the 1st player's move
+	lw $ra, 4($sp)		#Restore $ra
+	addi $sp, $sp, 4	
+	lb $t1, O
+	sb $t1, 0($v0)
+	
+	############ PRINT BOARD ##########################
+	addi $sp, $sp, -4	#Allocate Stack
+	sw $ra, 4($sp)		#Store register address
+	jal PRINTBOARD		#Print the board
+	lw $ra, 4($sp)		#Restore $ra
+	addi $sp, $sp, 4                             
+	
+	######## WHO IS WINNER? ############### 
+	addi $sp, $sp, -4	#Allocate Stack
+	sw $ra, 4($sp)		#Store register address
+	jal VIPPRO		#Check for winner
+	lw $ra, 4($sp)		#Restore $ra
+	addi $sp, $sp, 4
+	bnez $v0, W
+	
+	##### First player move - 11th Time ########################
+	addi $sp, $sp, -4	#Allocate Stack
+	sw $ra, 4($sp)		#Store register address
+	jal MOVE1		#Get the 1st player's move
+	lw $ra, 4($sp)		#Restore $ra
+	addi $sp, $sp, 4	
+	lb $t0, X
+	sb $t0, 0($v0)
+	
+	############ PRINT BOARD ##########################
+	addi $sp, $sp, -4	#Allocate Stack
+	sw $ra, 4($sp)		#Store register address
+	jal PRINTBOARD		#Print the board
+	lw $ra, 4($sp)		#Restore $ra
+	addi $sp, $sp, 4
+	
+	######## WHO IS WINNER? ############### 
+	addi $sp, $sp, -4	#Allocate Stack
+	sw $ra, 4($sp)		#Store register address
+	jal VIPPRO		#Check for winner
+	lw $ra, 4($sp)		#Restore $ra
+	addi $sp, $sp, 4
+	bnez $v0, W
+	
+	#### Second player move - 11th Time #####################
+	addi $sp, $sp, -4	#Allocate Stack
+	sw $ra, 4($sp)		#Store register address
+	jal MOVE2		#Get the 1st player's move
+	lw $ra, 4($sp)		#Restore $ra
+	addi $sp, $sp, 4	
+	lb $t1, O
+	sb $t1, 0($v0)
+	
+	############ PRINT BOARD ##########################
+	addi $sp, $sp, -4	#Allocate Stack
+	sw $ra, 4($sp)		#Store register address
+	jal PRINTBOARD		#Print the board
+	lw $ra, 4($sp)		#Restore $ra
+	addi $sp, $sp, 4                             
+	
+	######## WHO IS WINNER? ############### 
+	addi $sp, $sp, -4	#Allocate Stack
+	sw $ra, 4($sp)		#Store register address
+	jal VIPPRO		#Check for winner
+	lw $ra, 4($sp)		#Restore $ra
+	addi $sp, $sp, 4
+	bnez $v0, W
+	
+	##### First player move - 12th Time ########################
+	addi $sp, $sp, -4	#Allocate Stack
+	sw $ra, 4($sp)		#Store register address
+	jal MOVE1		#Get the 1st player's move
+	lw $ra, 4($sp)		#Restore $ra
+	addi $sp, $sp, 4	
+	lb $t0, X
+	sb $t0, 0($v0)
+	
+	############ PRINT BOARD ##########################
+	addi $sp, $sp, -4	#Allocate Stack
+	sw $ra, 4($sp)		#Store register address
+	jal PRINTBOARD		#Print the board
+	lw $ra, 4($sp)		#Restore $ra
+	addi $sp, $sp, 4
+	
+	######## WHO IS WINNER? ############### 
+	addi $sp, $sp, -4	#Allocate Stack
+	sw $ra, 4($sp)		#Store register address
+	jal VIPPRO		#Check for winner
+	lw $ra, 4($sp)		#Restore $ra
+	addi $sp, $sp, 4
+	bnez $v0, W
+	
+	#### Second player move - 12th Time #####################
+	addi $sp, $sp, -4	#Allocate Stack
+	sw $ra, 4($sp)		#Store register address
+	jal MOVE2		#Get the 1st player's move
+	lw $ra, 4($sp)		#Restore $ra
+	addi $sp, $sp, 4	
+	lb $t1, O
+	sb $t1, 0($v0)
+	
+	############ PRINT BOARD ##########################
+	addi $sp, $sp, -4	#Allocate Stack
+	sw $ra, 4($sp)		#Store register address
+	jal PRINTBOARD		#Print the board
+	lw $ra, 4($sp)		#Restore $ra
+	addi $sp, $sp, 4                             
+	
+	######## WHO IS WINNER? ############### 
+	addi $sp, $sp, -4	#Allocate Stack
+	sw $ra, 4($sp)		#Store register address
+	jal VIPPRO		#Check for winner
+	lw $ra, 4($sp)		#Restore $ra
+	addi $sp, $sp, 4
+	bnez $v0, W
+		
+	#### First player move - 13th Time #####################
+	addi $sp, $sp, -4	#Allocate Stack
+	sw $ra, 4($sp)		#Store register address
+	jal MOVE2		#Get the 1st player's move
+	lw $ra, 4($sp)		#Restore $ra
+	addi $sp, $sp, 4	
+	lb $t1, O
+	sb $t1, 0($v0)
+	
+	############ PRINT BOARD ##########################
+	addi $sp, $sp, -4	#Allocate Stack
+	sw $ra, 4($sp)		#Store register address
+	jal PRINTBOARD		#Print the board
+	lw $ra, 4($sp)		#Restore $ra
+	addi $sp, $sp, 4                             
+	
+	######## WHO IS WINNER? ############### 
+	addi $sp, $sp, -4	#Allocate Stack
+	sw $ra, 4($sp)		#Store register address
+	jal VIPPRO		#Check for winner
+	lw $ra, 4($sp)		#Restore $ra
+	addi $sp, $sp, 4
+	bnez $v0, W
 	
 Tie:	li $v0, 4
 	la $a0, tie
@@ -342,9 +725,9 @@ MOVE1:
 	beq $t4, $v0, SURRENDER1
 
 	li $t5, 1
-	blt $v0, $t5, LT1_1
+	blt $v0, $t5, INVALID1
 	li $t5, 25
-	bgt $v0, $t5, LT1_1
+	bgt $v0, $t5, INVALID1
 	
 	move $t0, $s0
 	add $a0, $t0, $v0
@@ -372,9 +755,9 @@ MOVE2:
 	beq $t4, $v0, SURRENDER2
 	
 	li $t5, 1
-	blt $v0, $t5, LT1_2
+	blt $v0, $t5, INVALID2
 	li $t5, 25
-	bgt $v0, $t5, LT1_2
+	bgt $v0, $t5, INVALID2
 	
 	move $t0, $s0
 	add $a0, $t0, $v0
@@ -392,27 +775,17 @@ FLAG2:
 	syscall
 	j MOVE2
 	
-LT1_1:
-	li $v0, 4
-	la $a0, invalid
-	syscall
-	j MOVE1
-GT9_1:
+INVALID1:
 	li $v0, 4
 	la $a0, invalid
 	syscall
 	j MOVE1
 
-LT1_2:
+INVALID2:
 	li $v0, 4
 	la $a0, invalid
 	syscall
 	j MOVE2
-GT9_2:
-	li $v0, 4
-	la $a0, invalid
-	syscall
-	j MOVE1
 	
 OCCUPIED:
 	li $v0, 0
@@ -428,14 +801,14 @@ NOTOCC:
 VIPPRO:
 	addi $sp, $sp, -4
 	sw $ra, 4($sp)
-	jal ALLROW
+	jal ROW1
 	lw $ra, 4($sp)
 	addi $sp, $sp, 4
 	bnez $v0, WON
 	
 	addi $sp, $sp, -4
 	sw $ra, 4($sp)
-	jal ALLCOL
+	jal COL1
 	lw $ra, 4($sp)
 	addi $sp, $sp, 4
 	bnez $v0, WON
@@ -445,92 +818,435 @@ VIPPRO:
 	jal DIAG1
 	lw $ra, 4($sp)
 	addi $sp, $sp, 4
-
+	bnez $v0, WON
+	
 WON:
 	jr $ra
 	
-ALLROW:
-	addi $sp, $sp, -4	#Allocate stack
-	sw $ra, 4($sp)		
-	li $a0, 1		#Check first row
-	jal CHECKROW		#Go to check
-	bnez $v0, ROWWIN	#If not return 0 then someone won.
-	li $a0, 2		#Else, check row 2
-	jal CHECKROW		#Go to check
-	bnez $v0, ROWWIN	#If not return 0, then someone won.
-	li $a0, 3		#Else, check last row
-	jal CHECKROW		#Go to check
-	bnez $v0, ROWWIN	#If not return 0, then someone won.
-	li $v0, 0		#If no one won, then return 0
-ROWWIN:
-	lw $ra, 4($sp)
-	addi $sp, $sp, 4
-	jr $ra
-	
-ALLCOL:
-	addi $sp, $sp, -4
-	sw $ra, 4($sp)
-	li $a0, 1		#Check column 1
-	jal CHECKCOL		#Go to check
-	bnez $v0, COLWIN	#If not return 0, then someone won
-	li $a0, 2		#Else, check column 2
-	jal CHECKCOL		#Go to check
-	bnez $v0, COLWIN	#If not return 0, then someone won
-	li $a0, 3		#Else, check column 3
-	jal CHECKCOL		#Go to check
-	bnez $v0, COLWIN	#If not return 0, then someone won
-	li $v0, 0		#No one won, then return 0
-COLWIN:
-	lw $ra, 4($sp)
-	addi $sp, $sp, 4
-	jr $ra
-	
-CHECKROW:
-	li $v0, 0
-	addi $a0, $a0, -1
-	li $t0, 3
-	mul $t0, $t0, $a0
-	move $t1, $s0
-	addi $t1, $t1, 1
-	add $t1, $t1, $t0
-	lb $t2, 0($t1)
-	lb $t3, 1($t1)
-	bne $t2, $t3, ENDROW
-	lb $t3, 2($t1)
-	bne $t2, $t3, ENDROW
-	move $v0, $t2
-ENDROW:
-	jr $ra
 
-CHECKCOL:
+ROW1:
 	li $v0, 0
 	move $t0, $s0
-	add $t0, $t0, $a0
-	lb $t1, 0($t0)
-	lb $t2, 3($t0)
-	lb $t3, 6($t0)
-	li $v0, 0
+	lb $t1, 1($t0)
+	lb $t2, 6($t0)
+	lb $t3, 11($t0)
+	bne $t1, $t2, ROW2
+	bne $t1, $t3, ROW2
+	move $v0, $t1
+	jr $ra
 	
+ROW2:
+	lb $t1, 6($t0)
+	lb $t2, 11($t0)
+	lb $t3, 16($t0)
+	bne $t1, $t2, ROW3
+	bne $t1, $t3, ROW3
+	move $v0, $t1
+	jr $ra
+	
+ROW3:
+	lb $t1, 11($t0)
+	lb $t2, 16($t0)
+	lb $t3, 21($t0)
+	bne $t1, $t2, ROW4
+	bne $t1, $t3, ROW4
+	move $v0, $t1
+	jr $ra
+	
+ROW4:
+	lb $t1, 2($t0)
+	lb $t2, 7($t0)
+	lb $t3, 12($t0)
+	bne $t1, $t2, ROW5
+	bne $t1, $t3, ROW5
+	move $v0, $t1
+	jr $ra
+	
+ROW5:
+	li $v0, 0
+	move $t0, $s0
+	lb $t1, 7($t0)
+	lb $t2, 12($t0)
+	lb $t3, 17($t0)
+	bne $t1, $t2, ROW6
+	bne $t1, $t3, ROW6
+	move $v0, $t1
+	jr $ra
+	
+ROW6:
+	lb $t1, 12($t0)
+	lb $t2, 17($t0)
+	lb $t3, 22($t0)
+	bne $t1, $t2, ROW7
+	bne $t1, $t3, ROW7
+	move $v0, $t1
+	jr $ra
+	
+ROW7:
+	lb $t1, 3($t0)
+	lb $t2, 8($t0)
+	lb $t3, 13($t0)
+	bne $t1, $t2, ROW8
+	bne $t1, $t3, ROW8
+	move $v0, $t1
+	jr $ra
+	
+ROW8:
+	lb $t1, 8($t0)
+	lb $t2, 13($t0)
+	lb $t3, 18($t0)
+	bne $t1, $t2, ROW9
+	bne $t1, $t3, ROW9
+	move $v0, $t1
+	jr $ra
+	
+ROW9:
+	lb $t1, 13($t0)
+	lb $t2, 18($t0)
+	lb $t3, 23($t0)
+	bne $t1, $t2, ROW10
+	bne $t1, $t3, ROW10
+	move $v0, $t1
+	jr $ra
+
+ROW10:
+	lb $t1, 4($t0)
+	lb $t2, 9($t0)
+	lb $t3, 14($t0)
+	bne $t1, $t2, ROW11
+	bne $t1, $t3, ROW11
+	move $v0, $t1
+	jr $ra
+
+ROW11:
+	lb $t1, 9($t0)
+	lb $t2, 14($t0)
+	lb $t3, 19($t0)
+	bne $t1, $t2, ROW12
+	bne $t1, $t3, ROW12
+	move $v0, $t1
+	jr $ra
+
+ROW12:
+	lb $t1, 14($t0)
+	lb $t2, 19($t0)
+	lb $t3, 24($t0)
+	bne $t1, $t2, ROW13
+	bne $t1, $t3, ROW13
+	move $v0, $t1
+	jr $ra
+
+ROW13:
+	lb $t1, 5($t0)
+	lb $t2, 10($t0)
+	lb $t3, 15($t0)
+	bne $t1, $t2, ROW14
+	bne $t1, $t3, ROW14
+	move $v0, $t1
+	jr $ra
+	
+ROW14:
+	lb $t1, 10($t0)
+	lb $t2, 15($t0)
+	lb $t3, 20($t0)
+	bne $t1, $t2, ROW15
+	bne $t1, $t3, ROW15
+	move $v0, $t1
+	jr $ra
+
+ROW15:
+	lb $t1, 15($t0)
+	lb $t2, 20($t0)
+	lb $t3, 25($t0)
+	bne $t1, $t2, ROWEND
+	bne $t1, $t3, ROWEND
+	move $v0, $t1
+	jr $ra
+ROWEND:
+	jr $ra
+
+COL1:
+	li $v0, 0
+	move $t0, $s0
+	lb $t1, 1($t0)
+	lb $t2, 6($t0)
+	lb $t3, 11($t0)
+	bne $t1, $t2, COL2
+	bne $t1, $t3, COL2
+	move $v0, $t1
+	jr $ra
+	
+COL2:
+	lb $t1, 6($t0)
+	lb $t2, 11($t0)
+	lb $t3, 16($t0)
+	bne $t1, $t2, COL3
+	bne $t1, $t3, COL3
+	move $v0, $t1
+	jr $ra
+	
+COL3:
+	lb $t1, 11($t0)
+	lb $t2, 16($t0)
+	lb $t3, 21($t0)
+	bne $t1, $t2, COL4
+	bne $t1, $t3, COL4
+	move $v0, $t1
+	jr $ra
+	
+COL4:
+	lb $t1, 2($t0)
+	lb $t2, 7($t0)
+	lb $t3, 12($t0)
+	bne $t1, $t2, COL5
+	bne $t1, $t3, COL5
+	move $v0, $t1
+	jr $ra
+	
+COL5:
+	lb $t1, 7($t0)
+	lb $t2, 12($t0)
+	lb $t3, 17($t0)
+	bne $t1, $t2, COL6
+	bne $t1, $t3, COL6
+	move $v0, $t1
+	jr $ra
+	
+COL6:
+	lb $t1, 12($t0)
+	lb $t2, 17($t0)
+	lb $t3, 22($t0)
+	bne $t1, $t2, COL7
+	bne $t1, $t3, COL7
+	move $v0, $t1
+	jr $ra
+	
+COL7:
+	lb $t1, 3($t0)
+	lb $t2, 8($t0)
+	lb $t3, 13($t0)
+	bne $t1, $t2, COL8
+	bne $t1, $t3, COL8
+	move $v0, $t1
+	jr $ra
+	
+COL8:
+	lb $t1, 8($t0)
+	lb $t2, 13($t0)
+	lb $t3, 18($t0)
+	bne $t1, $t2, COL9
+	bne $t1, $t3, COL9
+	move $v0, $t1
+	jr $ra
+	
+COL9:
+	lb $t1, 13($t0)
+	lb $t2, 18($t0)
+	lb $t3, 23($t0)
+	bne $t1, $t2, COL10
+	bne $t1, $t3, COL10
+	move $v0, $t1
+	jr $ra
+
+COL10:
+	lb $t1, 4($t0)
+	lb $t2, 9($t0)
+	lb $t3, 14($t0)
+	bne $t1, $t2, COL11
+	bne $t1, $t3, COL11
+	move $v0, $t1
+	jr $ra
+
+COL11:
+	lb $t1, 9($t0)
+	lb $t2, 14($t0)
+	lb $t3, 19($t0)
+	bne $t1, $t2, COL12
+	bne $t1, $t3, COL12
+	move $v0, $t1
+	jr $ra
+
+COL12:
+	lb $t1, 14($t0)
+	lb $t2, 19($t0)
+	lb $t3, 24($t0)
+	bne $t1, $t2, COL13
+	bne $t1, $t3, COL13
+	move $v0, $t1
+	jr $ra
+
+COL13:
+	lb $t1, 5($t0)
+	lb $t2, 10($t0)
+	lb $t3, 15($t0)
+	bne $t1, $t2, COL14
+	bne $t1, $t3, COL14
+	move $v0, $t1
+	jr $ra
+	
+COL14:
+	lb $t1, 10($t0)
+	lb $t2, 15($t0)
+	lb $t3, 20($t0)
+	bne $t1, $t2, COL15
+	bne $t1, $t3, COL15
+	move $v0, $t1
+	jr $ra
+
+COL15:
+	lb $t1, 15($t0)
+	lb $t2, 20($t0)
+	lb $t3, 25($t0)
 	bne $t1, $t2, COLEND
 	bne $t1, $t3, COLEND
 	move $v0, $t1
+	jr $ra
 COLEND:
 	jr $ra
 
+	### Check DIAG ###
 DIAG1:
 	li $v0, 0
 	move $t0, $s0
 	lb $t1, 1($t0)
-	lb $t2, 5($t0)
-	lb $t3, 9($t0)
+	lb $t2, 7($t0)
+	lb $t3, 13($t0)
 	bne $t1, $t2, DIAG2
 	bne $t1, $t3, DIAG2
 	move $v0, $t1
 	jr $ra
 DIAG2:
+	lb $t1, 6($t0)
+	lb $t2, 12($t0)
+	lb $t3, 18($t0)
+	bne $t1, $t2, DIAG3
+	bne $t1, $t3, DIAG3
+	move $v0, $t1
+	
+DIAG3:
+	lb $t1, 11($t0)
+	lb $t2, 17($t0)
+	lb $t3, 23($t0)
+	bne $t1, $t2, DIAG4
+	bne $t1, $t3, DIAG4
+	move $v0, $t1
+	
+DIAG4:
+	lb $t1, 2($t0)
+	lb $t2, 8($t0)
+	lb $t3, 14($t0)
+	bne $t1, $t2, DIAG5
+	bne $t1, $t3, DIAG5
+	move $v0, $t1
+	
+DIAG5:
+	lb $t1, 7($t0)
+	lb $t2, 13($t0)
+	lb $t3, 19($t0)
+	bne $t1, $t2, DIAG6
+	bne $t1, $t3, DIAG6
+	move $v0, $t1
+	
+DIAG6:
+	lb $t1, 12($t0)
+	lb $t2, 18($t0)
+	lb $t3, 24($t0)
+	bne $t1, $t2, DIAG7
+	bne $t1, $t3, DIAG7
+	move $v0, $t1
+	
+DIAG7:
 	lb $t1, 3($t0)
-	lb $t2, 5($t0)
-	lb $t3, 7($t0)
+	lb $t2, 7($t0)
+	lb $t3, 11($t0)
+	bne $t1, $t2, DIAG8
+	bne $t1, $t3, DIAG8
+	move $v0, $t1
+	
+DIAG8:
+	lb $t1, 3($t0)
+	lb $t2, 9($t0)
+	lb $t3, 15($t0)
+	bne $t1, $t2, DIAG9
+	bne $t1, $t3, DIAG9
+	move $v0, $t1
+	
+DIAG9:
+	lb $t1, 8($t0)
+	lb $t2, 12($t0)
+	lb $t3, 16($t0)
+	bne $t1, $t2, DIAG10
+	bne $t1, $t3, DIAG10
+	move $v0, $t1
+	
+DIAG10:
+	lb $t1, 8($t0)
+	lb $t2, 14($t0)
+	lb $t3, 20($t0)
+	bne $t1, $t2, DIAG11
+	bne $t1, $t3, DIAG11
+	move $v0, $t1
+	
+DIAG11:
+	lb $t1, 13($t0)
+	lb $t2, 17($t0)
+	lb $t3, 21($t0)
+	bne $t1, $t2, DIAG12
+	bne $t1, $t3, DIAG12
+	move $v0, $t1
+	
+DIAG12:
+	lb $t1, 13($t0)
+	lb $t2, 19($t0)
+	lb $t3, 25($t0)
+	bne $t1, $t2, DIAG13
+	bne $t1, $t3, DIAG13
+	move $v0, $t1
+	
+DIAG13:
+	lb $t1, 4($t0)
+	lb $t2, 8($t0)
+	lb $t3, 12($t0)
+	bne $t1, $t2, DIAG14
+	bne $t1, $t3, DIAG14
+	move $v0, $t1
+	
+DIAG14:
+	lb $t1, 9($t0)
+	lb $t2, 13($t0)
+	lb $t3, 17($t0)
+	bne $t1, $t2, DIAG15
+	bne $t1, $t3, DIAG15
+	move $v0, $t1
+	
+DIAG15:
+	lb $t1, 14($t0)
+	lb $t2, 18($t0)
+	lb $t3, 22($t0)
+	bne $t1, $t2, DIAG16
+	bne $t1, $t3, DIAG16
+	move $v0, $t1
+	
+DIAG16:
+	lb $t1, 5($t0)
+	lb $t2, 9($t0)
+	lb $t3, 13($t0)
+	bne $t1, $t2, DIAG17
+	bne $t1, $t3, DIAG17
+	move $v0, $t1
+	
+DIAG17:
+	lb $t1, 10($t0)
+	lb $t2, 14($t0)
+	lb $t3, 18($t0)
+	bne $t1, $t2, DIAG18
+	bne $t1, $t3, DIAG18
+	move $v0, $t1
+	
+DIAG18:
+	lb $t1, 15($t0)
+	lb $t2, 19($t0)
+	lb $t3, 23($t0)
 	bne $t1, $t2, DIAGEND
 	bne $t1, $t3, DIAGEND
 	move $v0, $t1
